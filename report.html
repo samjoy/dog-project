@@ -13380,6 +13380,7 @@ Percentage of images in dog_files with human faces: 11
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><strong>Question 2:</strong> This algorithmic choice necessitates that we communicate to the user that we accept human images only when they provide a clear view of a face (otherwise, we risk having unneccessarily frustrated users!). In your opinion, is this a reasonable expectation to pose on the user? If not, can you think of a way to detect humans in images that does not necessitate an image with a clearly presented face?</p>
 <p><strong>Answer:</strong></p>
+<p>No, this is not reasonable. The algorithm should be able to detect even if the image does not have a clearly presenetd face.One way around this is to use a Cascade CNN <a href="https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Li_A_Convolutional_Neural_2015_CVPR_paper.pdf">https://www.cv-foundation.org/openaccess/content_cvpr_2015/papers/Li_A_Convolutional_Neural_2015_CVPR_paper.pdf</a></p>
 <p>We suggest the face detector from OpenCV as a potential way to detect human images in your algorithm, but you are free to explore other approaches, especially approaches that make use of deep learning :).  Please use the code cell below to design and test your own face detection algorithm.  If you decide to pursue this <em>optional</em> task, report performance on each of the datasets.</p>
 
 </div>
@@ -13712,7 +13713,8 @@ Percentage of images in dog_files with dog detected: 100
 <p>We have imported some Python modules to get you started, but feel free to import as many modules as you need.  If you end up getting stuck, here's a hint that specifies a model that trains relatively fast on CPU and attains &gt;1% test accuracy in 5 epochs:</p>
 <p><img src="images/sample_cnn.png" alt="Sample CNN"></p>
 <p><strong>Question 4:</strong> Outline the steps you took to get to your final CNN architecture and your reasoning at each step.  If you chose to use the hinted architecture above, describe why you think that CNN architecture should work well for the image classification task.</p>
-<p><strong>Answer:</strong></p>
+<p><strong>Answer:</strong> 
+ The CNN I have developed has 3 convolutional layers with increasing number of filters so as to detect more complex patterns. After each convolutional layer I have attached a MaxPooling layer in order to reduce overfitting. With the pairs of convolutional and maxpooling layers, the spatial information should be squeezed out and only the image content remains. I have then added two Dense layers to decipher the image content. I have added a dropout layer to the first Dense layer to reduce overfitting.</p>
 
 </div>
 </div>
